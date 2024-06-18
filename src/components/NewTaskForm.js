@@ -27,13 +27,13 @@
 
 import React, { useState } from "react";
 
-function NewTaskForm({ submitTask, categories }) {
+function NewTaskForm({ onTaskFormSubmit, categories }) {
   const [text, setText] = useState('');
   const [category, setCategory] = useState(categories[0]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    submitTask({ text, category });
+    onTaskFormSubmit({ text, category });
     setText('');
     setCategory(categories[0]);
   }
@@ -55,12 +55,13 @@ function NewTaskForm({ submitTask, categories }) {
           name="category" 
           value={category} 
           onChange={(e) => setCategory(e.target.value)}
-        >
+         >
           {categories.map(cat => (
             <option key={cat} value={cat}>
               {cat}
             </option>
-          ))}
+          ))
+        }
         </select>
       </label>
       <input type="submit" value="Add task" />

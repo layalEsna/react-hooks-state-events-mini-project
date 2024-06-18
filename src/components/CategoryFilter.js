@@ -13,7 +13,7 @@
 
 
 import React from "react";
-import { CATEGORIES } from "../data";
+//import { CATEGORIES } from "../data";
 
 function CategoryFilter({categories, handleFilter, selectedCategory}) {
   return (

@@ -93,12 +93,12 @@ function App() {
     ? tasks 
     : tasks.filter(task => task.category === selectedCategory);
 
-  // function handleFormSubmit(newTask) {
-  //   setTasks([...tasks, newTask]);
-  // }
-  const submitTask = (newTask) => {
+  function onTaskFormSubmit(newTask) {
     setTasks([...tasks, newTask]);
-  };
+  }
+  // const submitTask = (newTask) => {
+  //   setTasks([...tasks, newTask]);
+  // };
   return (
     <div className="App">
       <h2>My tasks</h2>
@@ -109,7 +109,7 @@ function App() {
       />
       <NewTaskForm 
         //submitTask={handleFormSubmit} 
-        submitTask={submitTask}
+        onTaskFormSubmit={onTaskFormSubmit}
         categories={CATEGORIES.filter(cat => cat !== 'All')} 
       />
       <TaskList 
